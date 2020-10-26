@@ -51,4 +51,15 @@ class ArticlesController
 
         return require_once __DIR__  . '/../Views/ArticlesShowView.php';
     }
+
+    public function delete(array $vars)
+    {
+        query()
+            ->delete('articles')
+            ->where('id = :id')
+            ->setParameter('id', (int) $vars['id'])
+            ->execute();
+
+        header('Location: /');
+    }
 }
