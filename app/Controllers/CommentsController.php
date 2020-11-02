@@ -6,7 +6,7 @@ class CommentsController
 {
     public function store(array $vars)
     {
-        $articleId = (int)$vars['id'];
+        $articleId = (int) $vars['id'];
 
         query()
             ->insert('comments')

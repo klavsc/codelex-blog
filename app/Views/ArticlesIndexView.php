@@ -1,6 +1,8 @@
-<form method="get" action="/articles/create">
-    <button type="submit">Create New Article</button>
-</form>
+<?php if (isset($_SESSION['auth_id'])): ?>
+    <form method="post" action="/logout">
+        <button type="submit">Logout</button>
+    </form>
+<?php endif; ?>
 
 <h1>Articles</h1>
 
@@ -11,7 +13,7 @@
         </a>
     </h3>
     <form method="post" action="/articles/<?php echo $article->id(); ?>">
-        <input type="hidden" name="_method" value="DELETE"/>
+        <input type="hidden" name="_method" value="DELETE" />
         <button type="submit" onclick="return confirm('Are you sure?');">Delete</button>
     </form>
     <p><?php echo $article->content(); ?></p>

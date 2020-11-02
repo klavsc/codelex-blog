@@ -13,7 +13,8 @@ class CommentCollection
 
     public function create(array $comments): void
     {
-        foreach ($comments as $comment) {
+        foreach ($comments as $comment)
+        {
             $this->items[] = new Comment(
                 $comment['id'],
                 $comment['article_id'],
